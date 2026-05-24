@@ -1,0 +1,1 @@
+mari buat sebuah aplikasi dengan node js express ejs, dan akan run di vercel, aplikasi ini berjudul pencetpencetdownload.vercel.com yang berisi template-template di halaman home, dan ketika template di click dia akan diahlihkan ke halaman mengedit. biasanya hal ini berlaku untuk membuat meme template yang hanya input kata kata atau foto, lalu tombol download untuk mengunduh

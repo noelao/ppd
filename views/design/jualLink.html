@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        @font-face {
+            font-family: header;
+            src: url(../../public/fonts/Malam\ Poek.otf);
+        }
+        @font-face {
+            font-family: subHeader;
+            src: url(../../public/fonts/Mochi\ Green.otf);
+        }
+        @font-face {
+            font-family: script;
+            src: url(../../public/fonts/script.otf);
+        }
+    </style>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: header;
+        }
+        .container {
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .poster {
+            padding: 1rem;
+            border: solid 1px #000;
+            width: 100%;
+            aspect-ratio: 1;
+
+            display: flex;
+            flex-direction: column;
+            .header {
+                width: 100%;
+                text-align: center;
+                font-size: 2rem;
+            }
+            .kotakan {
+
+                width: 100%;
+                font-family: subHeader;
+                line-height: 1;
+                display: flex;
+                flex-direction: column;
+                gap: .1rem;
+
+                small.jenis {
+                    font-size: .5rem;
+                    padding-top: .3rem;
+                }
+
+                .wadah {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+
+                    /* display: flex;
+                    flex-wrap: wrap; */
+
+                    gap: .5rem;
+                    .foto {
+                        max-width: max-content;
+                        width: 100%;
+                        min-width: 2rem;
+
+                        display: flex;
+                        overflow: hidden;
+                        border-radius: .75rem;
+                        height: 2.9rem;
+                        position: relative;
+
+                        img {
+                            height: 100%;
+                        }
+                        .text {
+                            position: absolute;
+                            right: .6rem;
+                            bottom: -.1rem;
+                            font-size: 1.3rem;
+
+                            color: white;text-shadow: 1px 1px 0 #aaa, 
+                                2px 2px 0 #777777, 
+                                3px 3px 0 #777777, 
+                                4px 4px 0 #505050;
+                        }
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="poster" id="poster">
+            <small class="header">via Link</small>
+
+            <div class="kotakan">
+                <small class="jenis">scenery ~</small>
+                <div class="wadah">
+                    <div class="foto">
+                        <div class="text">20k</div>
+                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                    </div>
+                    <div class="foto">
+                        <div class="text">20k</div>
+                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                    </div>
+                    <div class="foto">
+                        <div class="text">30k</div>
+                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="kotakan">
+                <small class="jenis">skin ~</small>
+                <div class="wadah">
+                    <div class="foto">
+                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                    </div>
+                    <div class="foto">
+                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                    </div>
+                    <div class="foto">
+                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button onclick="downloadGambar()">Download sebagai PNG</button>
+
+        <div class="pilihanKotak"></div>
+    </div>
+
+
+    <script>
+        // 4. Logika JavaScript
+        function downloadGambar() {
+            // Pilih elemen HTML yang ingin difoto
+            const elemen = document.getElementById('poster');
+
+            // Gunakan html2canvas untuk merender elemen
+            html2canvas(elemen).then(function(canvas) {
+                // Ubah hasil render (canvas) menjadi URL data gambar dengan format PNG
+                const linkGambar = canvas.toDataURL("image/png");
+
+                // Buat tag link <a> secara virtual untuk memicu unduhan
+                const linkDownload = document.createElement('a');
+                linkDownload.href = linkGambar;
+                linkDownload.download = 'hasil-gambar.png'; // Tentukan nama file
+
+                // Klik link tersebut secara otomatis
+                linkDownload.click();
+            });
+        }
+    </script>
+</body>
+</body>
+</html>
