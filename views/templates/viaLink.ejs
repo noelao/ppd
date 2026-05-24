@@ -96,6 +96,8 @@
 
             display: flex;
             flex-direction: column;
+            position: relative;
+            background-color: #e7e7e7;
             .header {
                 width: 100%;
                 text-align: center;
@@ -122,7 +124,7 @@
                     /* display: flex;
                     flex-wrap: wrap; */
 
-                    gap: .5rem;
+                    gap: .3rem;
                     .foto {
                         max-width: max-content;
                         width: 100%;
@@ -135,7 +137,10 @@
                         position: relative;
 
                         img {
+                            min-width: 100%;
+                            min-height: 100%;
                             height: 100%;
+                            object-fit: cover;
                         }
                         .text {
                             position: absolute;
@@ -151,6 +156,34 @@
                     }
                 }
             }
+            .bawahan {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: 1rem;
+                .namaStore {
+
+                }
+                .qrCode {
+                    width: 4rem;
+                    aspect-ratio: 1;
+                    border-radius: .75rem;
+                    border: solid 1px #767676;
+                    overflow: hidden;
+
+                    img {
+                        min-width: 100%;
+                        min-height: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+            }
         }
     </style>
 </head>
@@ -160,7 +193,9 @@
             <small class="header">via Link</small>
 
             <div class="kotakan">
-                <small class="jenis">scenery ~</small>
+                <div class="atasa">
+                    <small class="jenis">scenery ~</small>
+                </div>
                 <div class="wadah">
                     <div class="foto">
                         <div class="text">20k</div>
@@ -191,12 +226,21 @@
                 </div>
             </div>
 
+            <div class="bawahan">
+                <div class="namaStore">
+                    Zuma<br>Store
+                </div>
+                <div class="qrCode">
+                    <img src="/images/logoTemplate/viaLink.png" alt="">
+                </div>
+            </div>
+
         </div>
         <button onclick="downloadGambar()" class="btn-utama">Download sebagai PNG</button>
 
 
 
-        <style>
+<style>
 .pilihanKotak {
     width: 100%;
     display: flex;
@@ -263,7 +307,7 @@
 
 /* Gaya Seragam untuk Input Number dan File */
 .opsi input[type="number"],
-.opsi input[type="file"] {
+.opsi input[type="file"], .opsi input[type="text"] {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #cbd5e1;
@@ -276,7 +320,7 @@
 }
 
 /* Efek Fokus untuk Input Number */
-.opsi input[type="number"]:focus {
+.opsi input[type="number"]:focus, .opsi input[type="text"]:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
@@ -313,6 +357,10 @@
 
         <div class="pilihanKotak">
             <small>generate kolom</small>
+            <div class="opsi bebas">
+                <label for="bebas">bebas</label>
+                <input type="number" name="bebas" id="bebas" >
+            </div>
             <div class="opsi scenery">
                 <label for="scenery">scenery</label>
                 <input type="number" name="scenery" id="scenery" >
@@ -331,6 +379,7 @@
 
 <!-- generate template -->
     <script>
+
         const wrapper = document.querySelector(".poster");
 
         let id = 0;
@@ -342,6 +391,7 @@
             const scenery = document.getElementById("scenery").value;
             const skin = document.getElementById("skin").value;
             const decoration = document.getElementById("decoration").value;
+            const bebas = document.getElementById("bebas").value;
 
             let sampah = "";
             if(scenery > 0){
@@ -401,6 +451,35 @@
                 `
                 sampah = "";
             }
+            if(bebas > 0){
+                for(let i = 0; i < bebas; i++){
+                    sampah += `
+                        <div class="foto">
+                            <img class="foto" src="/images/contoh/armoredMachine.jpg" alt="">
+                            <div class="text harga">20k</div>
+                        </div>`
+                        id++;
+                }
+                wrapper.innerHTML += `
+                    <div class="kotakan">
+                        <small class="jenis"> ~</small>
+                        <div class="wadah">
+                            ${sampah}
+                        </div>
+                    </div>
+                `
+                sampah = "";
+            }
+            wrapper.innerHTML += `
+            <div class="bawahan">
+                <div class="namaStore harga">
+                    Zuma<br>Store
+                </div>
+                <div class="qrCode foto">
+                    <img src="/images/logoTemplate/viaLink.png" alt="">
+                </div>
+            </div>
+            `;
             
             editTemplate();
         }
@@ -415,7 +494,7 @@
                     <div class="bagiDua">
                         <div class="pisah">
                             <label for="g-${i}">harga</label>
-                            <input type="number" name="g-${i}" id="g-${i}" >
+                            <input class="editin" type="number" name="g-${i}" id="g-${i}" >
                         </div>
                         <div class="pisah">
                             <label for="image-${i}">foto</label>
@@ -429,12 +508,26 @@
             wrapper2.innerHTML = `
                 <small>generate kolom</small>
                 ${sampah}
+                
+                <div class="opsi inian">
+                    <small>untuk id ${id}</small>
+                    <div class="bagiDua">
+                        <div class="pisah">
+                            <label for="g-${id}">namaStore</label>
+                            <input class="editin" type="text" name="g-${id}" id="g-${id}" >
+                        </div>
+                        <div class="pisah">
+                            <label for="image-${id}">foto qrCode</label>
+                            <input type="file" name="image-${id}" id="image-${id}" accept="image/*">
+                        </div>
+                    </div>
+                </div>
             `;
             tambahkanListener();
         }
         
         function tambahkanListener(){
-            const inputHarga = document.querySelectorAll(".pisah input[type='number']");
+            const inputHarga = document.querySelectorAll(".pisah input.editin");
             const inputFoto = document.querySelectorAll(".pisah input[type='file']");
 
             const tampilanHarga = document.querySelectorAll(".harga");
@@ -445,7 +538,7 @@
 
             inputHarga.forEach((input, i) => {
                 input.addEventListener("input", function(){
-                    tampilanHarga[i].innerHTML = input.value + "k";
+                    tampilanHarga[i].innerHTML = input.value;
                 });
             });
             inputFoto.forEach((input, i) => {
@@ -455,8 +548,6 @@
                         const fileUrl = URL.createObjectURL(file);
                         
                         tampilanFoto[i].src = fileUrl;
-                        
-                        tampilanFoto[i].style.display = 'block';
                     } else {
                         tampilanFoto[i].src = '/images/contoh/armoredMachine.jpg';
                     }
@@ -469,6 +560,7 @@
 
     <script>
         function downloadGambar() {
+            document.querySelector(".poster").style.border = "none";
             // Tampilkan loading spinner jika ada (proses render HD butuh waktu di HP)
             // contoh: document.getElementById('loading').style.display = 'block';
 
