@@ -10,15 +10,15 @@
     <style>
         @font-face {
             font-family: header;
-            src: url(../../public/fonts/Malam\ Poek.otf);
+            src: url(/fonts/Malam\ Poek.otf);
         }
         @font-face {
             font-family: subHeader;
-            src: url(../../public/fonts/Mochi\ Green.otf);
+            src: url(/fonts/Mochi\ Green.otf);
         }
         @font-face {
             font-family: script;
-            src: url(../../public/fonts/script.otf);
+            src: url(/fonts/script.otf);
         }
     </style>
 
@@ -164,15 +164,15 @@
                 <div class="wadah">
                     <div class="foto">
                         <div class="text">20k</div>
-                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                        <img src="/images/contoh/armoredMachine.jpg" alt="">
                     </div>
                     <div class="foto">
                         <div class="text">20k</div>
-                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                        <img src="/images/contoh/armoredMachine.jpg" alt="">
                     </div>
                     <div class="foto">
                         <div class="text">30k</div>
-                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                        <img src="/images/contoh/armoredMachine.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -180,13 +180,13 @@
                 <small class="jenis">skin ~</small>
                 <div class="wadah">
                     <div class="foto">
-                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                        <img src="/images/contoh/armoredMachine.jpg" alt="">
                     </div>
                     <div class="foto">
-                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                        <img src="/images/contoh/armoredMachine.jpg" alt="">
                     </div>
                     <div class="foto">
-                        <img src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                        <img src="/images/contoh/armoredMachine.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -348,7 +348,7 @@
                 for(let i = 0; i < scenery; i++){
                     sampah += `
                         <div class="foto" id="${id}">
-                            <img class="foto" src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                            <img class="foto" src="/images/contoh/armoredMachine.jpg" alt="">
                             <div class="text harga">20k</div>
                         </div>`
                         id++;
@@ -367,7 +367,7 @@
                 for(let i = 0; i < skin; i++){
                     sampah += `
                         <div class="foto">
-                            <img class="foto" src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                            <img class="foto" src="/images/contoh/armoredMachine.jpg" alt="">
                             <div class="text harga">20k</div>
                         </div>`
                         id++;
@@ -386,7 +386,7 @@
                 for(let i = 0; i < decoration; i++){
                     sampah += `
                         <div class="foto">
-                            <img class="foto" src="../../public/images/contoh/armoredMachine.jpg" alt="">
+                            <img class="foto" src="/images/contoh/armoredMachine.jpg" alt="">
                             <div class="text harga">20k</div>
                         </div>`
                         id++;
@@ -457,13 +457,8 @@
                         tampilanFoto[i].src = fileUrl;
                         
                         tampilanFoto[i].style.display = 'block';
-
-                        // tampilanFoto[i].onload = function() {
-                        //     URL.revokeObjectURL(tampilanFoto[i].src);
-                        // };
                     } else {
-                        tampilanFoto[i].src = '../../public/images/contoh/armoredMachine.jpg';
-                        // tampilanFoto[i].style.display = 'none';
+                        tampilanFoto[i].src = '/images/contoh/armoredMachine.jpg';
                     }
 
                 });
@@ -473,27 +468,6 @@
     </script>
 
     <script>
-        // function downloadGambar() {
-        //     const elemen = document.getElementById('poster');
-
-        //     // Tambahkan opsi useCORS dan scale di sini
-        //     html2canvas(elemen, {
-        //         useCORS: true,       // Mengizinkan render gambar dari sumber luar/Blob
-        //         allowTaint: true,    // Mengizinkan render meskipun gambar dianggap "kotor" oleh browser
-        //         scale: 3             // Membuat hasil capture lebih tajam (HD)
-        //     }).then(function(canvas) {
-        //         const linkGambar = canvas.toDataURL("image/png");
-
-        //         const linkDownload = document.createElement('a');
-        //         linkDownload.href = linkGambar;
-        //         linkDownload.download = 'hasil-gambar.png'; 
-
-        //         linkDownload.click();
-        //     }).catch(function(error) {
-        //         console.error("Gagal melakukan capture:", error);
-        //     });
-        // }
-
         function downloadGambar() {
             // Tampilkan loading spinner jika ada (proses render HD butuh waktu di HP)
             // contoh: document.getElementById('loading').style.display = 'block';
