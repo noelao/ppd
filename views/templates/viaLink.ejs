@@ -167,10 +167,6 @@
                 bottom: 0;
                 left: 0;
                 padding: .8rem;
-                .kiri {
-                    display: flex;
-                    gap: .3rem;
-                }
                 .kanan {
                     display: flex;
                     gap: .3rem;
@@ -195,6 +191,33 @@
                         min-height: 100%;
                         height: 100%;
                         object-fit: cover;
+                    }
+                }
+                
+                .kiri {
+                    display: flex;
+                    gap: .3rem;
+                    .sosmed {
+                        font-family: subHeader;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: end;
+                        gap: .3rem;
+                        .satuan {
+                            display: flex;
+                            align-items: center;
+                            gap: .3rem;
+                            small {
+                                font-weight: 600;
+                                font-size: .7rem;
+                            }
+                            img {
+                                height: .9rem;
+                                aspect-ratio: 1;
+
+                            }
+                        }
                     }
                 }
 
@@ -243,7 +266,16 @@
 
             <div class="bawahan">
                 <div class="kiri">
-                    <div class="gambar"></div>
+                    <div class="sosmed">
+                        <div class="satuan fb">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="">
+                            <small>zuma storee</small>
+                        </div>
+                        <div class="satuan wa">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+                            <small>085165418969</small>
+                        </div>
+                    </div>
                 </div>
                 <div class="kanan">
                     <div class="namaStore">
@@ -406,7 +438,7 @@
 
         function generateTemplate(){
             let headers = `<small class="header">via Link</small>`;
-            wrapper.innerHTML = headers;
+            wrapper.innerHTML = "";
 
             const scenery = document.getElementById("scenery").value;
             const skin = document.getElementById("skin").value;
@@ -493,13 +525,24 @@
             wrapper.innerHTML += `
             <div class="bawahan">
                 <div class="kiri">
-                    <div class="gambar"></div>
-                    <div class="namaStore harga">
-                        Zuma<br>Store
+                    <div class="sosmed">
+                        <div class="satuan fb">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="">
+                            <small>zuma storee</small>
+                        </div>
+                        <div class="satuan wa">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+                            <small>085165418969</small>
+                        </div>
                     </div>
                 </div>
 
                 <div class="kanan">
+                    
+                    <div class="namaStore harga">
+                        Zuma<br>Store
+                    </div>
+                    
                     <div class="qrCode foto2">
                         <img src="/images/logoTemplate/viaLink.png" alt="">
                     </div>
