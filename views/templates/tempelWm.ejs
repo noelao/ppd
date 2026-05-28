@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- fonts -->
+    <style>
+        @font-face {
+            font-family: header;
+            src: url(/fonts/Malam\ Poek.otf);
+        }
+        @font-face {
+            font-family: mobbin;
+            src: url(/fonts/mobbin.woff2);
+        }
+        @font-face {
+            font-family: script;
+            src: url(/fonts/script.otf);
+        }
+    </style>
+
+    <!-- button -->
+    <style>
+        /* Gaya Dasar Tombol */
+.btn {
+  padding: 12px 24px;         /* Ukuran ruang di dalam tombol (atas-bawah, kiri-kanan) */
+  font-size: 16px;            /* Ukuran huruf */
+  font-weight: 600;           /* Ketebalan huruf */
+  font-family: Arial, sans-serif;
+  color: #ffffff;             /* Warna teks */
+  background-color: #007bff;  /* Warna latar belakang (Biru) */
+  border: none;               /* Menghilangkan garis tepi bawaan */
+  border-radius: 8px;         /* Membuat sudut tombol melengkung */
+  cursor: pointer;            /* Mengubah kursor menjadi bentuk tangan saat diarahkan */
+  transition: all 0.3s ease;  /* Membuat animasi perubahan menjadi halus */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan lembut */
+}
+
+/* Efek saat kursor diarahkan ke tombol (Hover) */
+.btn:hover {
+  background-color: #0056b3;  /* Warna biru menjadi lebih gelap */
+  transform: translateY(-2px);/* Tombol sedikit terangkat ke atas */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan menjadi lebih besar */
+}
+
+/* Efek saat tombol diklik (Active) */
+.btn:active {
+  transform: translateY(0);   /* Tombol kembali turun saat ditekan */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan mengecil */
+}
+    </style>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: mobbin;
+        }
+        .container {
+            width: 100%;
+        }
+        .poster {
+            width: 100%;
+            border: solid 1px #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: max-content;
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            .wm {
+                position: absolute;
+                transform: rotate(-18deg);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                small {
+                    font-family: header;
+                    font-size: 2.2rem;
+                    color: #fff;
+                    opacity: .8;
+                }
+                p {
+                    font-family: mobbin;
+                    font-size: 1rem;
+                    color: #fff;
+                    background-color: #000;
+                    padding: 0 1rem;
+                }
+            }
+        }
+    </style>
+
+    <!-- style input -->
+    <style>
+        /* Container pembungkus (opsional) */
+.file-upload-wrapper {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+/* MENYEMBUNYIKAN INPUT ASLI 
+  Kita tidak menggunakan display:none agar elemen ini tetap bisa 
+  diakses oleh pengguna keyboard (Screen Reader) 
+*/
+.file-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+/* MENDESAIN LABEL (TAMPILAN UTAMA)
+*/
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f8f9fa; /* Warna latar abu-abu terang */
+  border: 2px dashed #007bff; /* Garis tepi putus-putus berwarna biru */
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: Arial, sans-serif;
+  color: #495057;
+}
+
+/* Efek saat kursor diarahkan ke area label (Hover) */
+.file-label:hover {
+  background-color: #e9ecef;
+  border-color: #0056b3;
+  color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+}
+
+/* Gaya untuk Ikon di dalam label */
+.upload-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+/* Gaya untuk Teks di dalam label */
+.upload-text {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* EFEK FOKUS (Aksesibilitas)
+  Memberikan indikator visual jika pengguna menavigasi menggunakan tombol "Tab" di keyboard
+*/
+.file-input:focus + .file-label {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  background-color: #e9ecef;
+}
+    </style>
+
+    <style>
+        .generate {
+            margin-top: 1rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="poster" id="poster">
+            <img src="/images/contoh/armoredMachine.jpg" alt="">
+
+            <div class="wm">
+                <small>
+                    zuma<br>store
+                </small>
+                <p>fb: Zuma Storee</p>
+                <p>wa: 085165418969</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="generate">
+        <button class="btn" onclick="downloadGambar()">Download sebagai PNG</button>
+
+        <div class="file-upload-wrapper">
+            <label for="warnaFont">warna Font</label>
+            <input type="color" name="warnaFont" id="warnaFont">
+            <br>
+            <br>
+            <br>
+            <input type="file" id="image-upload" class="file-input" accept="image/*" />
+
+        
+            <label for="image-upload" class="file-label">
+                <span class="upload-icon">📷</span>
+                <span class="upload-text">Pilih Gambar atau Tarik ke Sini</span>
+            </label>
+        </div>
+    </div>
+
+
+    <script>
+    const inputan = document.getElementById("image-upload");
+    const tampilanFoto = document.querySelector(".poster img");
+    const warnaFont = document.getElementById("warnaFont");
+    const tamipilanFont = document.querySelector(".wm small");
+    
+    warnaFont.addEventListener("input", function(){
+        tamipilanFont.style.color = warnaFont.value;
+    });
+
+    inputan.addEventListener("change", function(){
+        const file = event.target.files[0];
+        if (file) {
+            const fileUrl = URL.createObjectURL(file);
+            
+            tampilanFoto.src = fileUrl;
+            tampilanFoto.style.objectFit = "cover";
+            tampilanFoto.style.objectPosition = "left center";
+        } else {
+            tampilanFoto.src = '/images/contoh/armoredMachine.jpg';
+        }
+
+    });
+    </script>
+
+    <script>
+        function downloadGambar() {
+            document.querySelector(".poster").style.border = "none";
+            // Tampilkan loading spinner jika ada (proses render HD butuh waktu di HP)
+            // contoh: document.getElementById('loading').style.display = 'block';
+
+            // Pilih elemen HTML yang ingin difoto
+            const elemen = document.getElementById('poster');
+
+            // --- TRIK UNTUK MAKSIMAL HD ---
+            // 1. Ambil ukuran asli elemen
+            const originalW = elemen.offsetWidth;
+            const originalH = elemen.offsetHeight;
+
+            // 2. Tentukan seberapa besar perkalian resolusinya (contoh: 3x lipat)
+            const multiplier = 3; 
+
+            // Gunakan html2canvas dengan konfigurasi canggih
+            html2canvas(elemen, {
+                useCORS: true,         // Wajib agar foto user muncul
+                allowTaint: true,      
+                scale: multiplier,     // Mengalikan resolusi kanvas
+                
+                // Atur ukuran kanvas secara spesifik agar pas dengan skala
+                width: originalW,
+                height: originalH,
+                windowWidth: originalW,
+                windowHeight: originalH,
+
+                // Memberi tahu browser untuk merender dengan prioritas kualitas teks/gambar tinggi
+                onclone: (clonedDoc) => {
+                    // Opsional: Kamu bisa memanipulasi elemen di dalam kloningan di sini
+                    // sebelum dirender, jika perlu.
+                }
+            }).then(function(canvas) {
+                // Ubah hasil render menjadi URL data gambar
+                const linkGambar = canvas.toDataURL("image/png");
+
+                // Buat tag link <a> untuk memicu unduhan
+                const linkDownload = document.createElement('a');
+                linkDownload.href = linkGambar;
+                linkDownload.download = 'hasil-gambar-hd.png';
+
+                // Klik link tersebut secara otomatis
+                linkDownload.click();
+
+                // Sembunyikan loading spinner
+                // contoh: document.getElementById('loading').style.display = 'none';
+            }).catch(function(error) {
+                console.error("Gagal capture HD:", error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -9,5 +9,8 @@ template.get('/', (req, res) => {
 template.get('/viaLink', (req, res) => {
     res.render('templates/viaLink'); 
 });
+template.get('/tempelWm', (req, res) => {
+    res.render('templates/tempelWm'); 
+});
 
 module.exports = template;
