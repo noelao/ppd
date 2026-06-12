@@ -92,12 +92,22 @@
             padding: 1rem;
             border: solid 1px #000;
             width: 100%;
-            aspect-ratio: 1;
+            aspect-ratio: 9/10;
 
             display: flex;
             flex-direction: column;
             position: relative;
-            background-color: #fafafa;
+            background-color: #eaeaea;
+            overflow: hidden;
+            .background {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                
+                transform: translateX(-50%) translateY(-50%) scale(1.8) rotate(-33deg);
+                opacity: .2;
+                z-index: 0;
+            }
             .header {
                 width: 100%;
                 text-align: center;
@@ -105,13 +115,15 @@
             }
             .kotakan {
 
-                width: 100%;
+                width: calc(100% - 2rem) ;
                 font-family: subHeader;
                 line-height: 1;
                 display: flex;
                 flex-direction: column;
                 gap: .1rem;
 
+                position: absolute;
+                z-index: 1;
                 small.jenis {
                     font-size: .5rem;
                     padding-top: .3rem;
@@ -160,6 +172,8 @@
             }
             .bawahan {
                 width: 100%;
+                height: 6rem;
+
                 display: flex;
                 justify-content: space-between;
 
@@ -167,6 +181,7 @@
                 bottom: 0;
                 left: 0;
                 padding: .8rem;
+                z-index: 1;
                 .kanan {
                     display: flex;
                     gap: .3rem;
@@ -180,7 +195,7 @@
                     text-align: center;
                 }
                 .qrCode {
-                    width: 4.5rem;
+                    height: 100%;
                     aspect-ratio: 1;
                     border-radius: .25rem;
                     border: solid 1px #767676;
@@ -195,14 +210,15 @@
                 }
                 
                 .kiri {
-                    display: flex;
                     gap: .3rem;
+                    height: 100%;
+                    display: flex;
                     .sosmed {
                         font-family: subHeader;
                         height: 100%;
                         display: flex;
                         flex-direction: column;
-                        justify-content: end;
+                        justify-content: center;
                         gap: .3rem;
                         .satuan {
                             display: flex;
@@ -215,7 +231,6 @@
                             img {
                                 height: .9rem;
                                 aspect-ratio: 1;
-
                             }
                         }
                     }
@@ -228,8 +243,9 @@
 <body>
     <div class="container">
         <div class="poster" id="poster">
-            <small class="header">via Link</small>
-
+            <div class="background">
+                <img src="/images/scell.png" alt="">
+            </div>
             <div class="kotakan">
                 <div class="atasa">
                     <small class="jenis">scenery ~</small>
@@ -268,11 +284,11 @@
                 <div class="kiri">
                     <div class="sosmed">
                         <div class="satuan fb">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="">
+                            <img src="/images/icon/fb.svg" alt="">
                             <small>zuma storee</small>
                         </div>
                         <div class="satuan wa">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+                            <img src="/images/icon/WhatsApp.svg" alt="">
                             <small>085165418969</small>
                         </div>
                     </div>
@@ -514,7 +530,6 @@
                 }
                 wrapper.innerHTML += `
                     <div class="kotakan">
-                        <small class="jenis"> ~</small>
                         <div class="wadah">
                             ${sampah}
                         </div>
@@ -523,15 +538,18 @@
                 sampah = "";
             }
             wrapper.innerHTML += `
+            <div class="background">
+                <img src="/images/scell.png" alt="">
+            </div>
             <div class="bawahan">
                 <div class="kiri">
                     <div class="sosmed">
                         <div class="satuan fb">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="">
+                            <img src="/images/icon/fb.svg" alt="">
                             <small>zuma storee</small>
                         </div>
                         <div class="satuan wa">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
+                            <img src="/images/icon/WhatsApp.svg" alt="">
                             <small>085165418969</small>
                         </div>
                     </div>
