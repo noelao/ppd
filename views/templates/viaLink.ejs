@@ -185,11 +185,11 @@
                 z-index: 1;
                 .kanan {
                     display: flex;
-                    gap: .3rem;
+                    gap: .2rem;
                 }
                 .namaStore {
                     height: 100%;
-                    aspect-ratio: 6/5;
+                    aspect-ratio: 9/7;
 
                     display: flex;
                     flex-direction: column;
@@ -200,11 +200,25 @@
                         object-fit: cover;
                     }
                 }
+                .iconTertentu {
+                    height: 100%;
+                    aspect-ratio: 1/1;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    img {
+                        width: 100%;
+                        scale: 2.3;
+                        object-fit: cover;
+                    }
+                }
                 .qrCode {
                     height: 100%;
                     aspect-ratio: 1;
                     border-radius: .25rem;
-                    border: solid 1px #767676;
+                    border: solid 1.5px #000000;
                     overflow: hidden;
 
                     img {
@@ -215,31 +229,32 @@
                     }
                 }
                 
+                .sosmed {
+                    font-family: subHeader;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: end;
+                    gap: .1rem;
+                    padding-bottom: 0.5rem;
+                    .satuan {
+                        display: flex;
+                        align-items: center;
+                        gap: .3rem;
+                        small {
+                            font-weight: 600;
+                            font-size: .7rem;
+                        }
+                        img {
+                            height: .9rem;
+                            aspect-ratio: 1;
+                        }
+                    }
+                }
                 .kiri {
                     gap: .3rem;
                     height: 100%;
                     display: flex;
-                    .sosmed {
-                        font-family: subHeader;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        gap: .3rem;
-                        .satuan {
-                            display: flex;
-                            align-items: center;
-                            gap: .3rem;
-                            small {
-                                font-weight: 600;
-                                font-size: .7rem;
-                            }
-                            img {
-                                height: .9rem;
-                                aspect-ratio: 1;
-                            }
-                        }
-                    }
                 }
 
             }
@@ -288,23 +303,26 @@
 
             <div class="bawahan">
                 <div class="kiri">
+                    <div class="qrCode foto2">
+                        <img src="/images/icon/qrr.jpg" alt="">
+                    </div>
                     <div class="sosmed">
                         <div class="satuan fb">
                             <img src="/images/icon/fb.svg" alt="">
                             <small>zuma storee</small>
                         </div>
                         <div class="satuan wa">
-                            <img src="/images/icon/WhatsApp.svg" alt="">
+                            <img src="/images/icon/wa.png" alt="">
                             <small>085165418969</small>
                         </div>
                     </div>
                 </div>
                 <div class="kanan">
+                    <div class="iconTertentu">
+                        <img src="/images/fankid/ini1.png" alt="">
+                    </div>
                     <div class="namaStore">
                         <img src="/images/zumaLogo.png" alt="">
-                    </div>
-                    <div class="qrCode foto2">
-                        <img src="/images/icon/qrr.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -549,6 +567,9 @@
             </div>
             <div class="bawahan">
                 <div class="kiri">
+                    <div class="qrCode foto2">
+                        <img src="/images/icon/qrr.jpg" alt="">
+                    </div>
                     <div class="sosmed">
                         <div class="satuan fb">
                             <img src="/images/icon/fb.svg" alt="">
@@ -560,15 +581,12 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="kanan">
-                    
-                    <div class="namaStore harga">
-                        <img src="/images/zumaLogo.png" alt="">
+                    <div class="iconTertentu">
+                        <img src="/images/fankid/ini1.png" alt="">
                     </div>
-                    
-                    <div class="qrCode foto2">
-                        <img src="/images/icon/qrr.jpg" alt="">
+                    <div class="namaStore">
+                        <img src="/images/zumaLogo.png" alt="">
                     </div>
                 </div>
             </div>
