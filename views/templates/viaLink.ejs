@@ -90,7 +90,6 @@
         }
         .poster {
             padding: 1rem;
-            border: solid 1px #000;
             width: 100%;
             aspect-ratio: 9/10;
 
@@ -102,11 +101,11 @@
 
             .background {
                 position: absolute;
-                top: 50%;
-                left: 50%;
+                top: 100%;
+                left: 80%;
                 
-                transform: translateX(-50%) translateY(-50%) scale(1.15) rotate(-34deg);
-                opacity: .2;
+                transform: translateX(-50%) translateY(-50%) scale(.8) rotate(-34deg);
+                opacity: .5;
                 z-index: 0;
             }
             .header {
@@ -217,8 +216,8 @@
                 .qrCode {
                     height: 100%;
                     aspect-ratio: 1;
-                    border-radius: .25rem;
-                    border: solid 1.5px #000000;
+                    border-radius: .2rem;
+                    border: solid 1.3px #000000;
                     overflow: hidden;
 
                     img {
@@ -265,7 +264,7 @@
     <div class="container">
         <div class="poster" id="poster">
             <div class="background">
-                <img src="/images/Supercell-logo.svg" alt="">
+                <img src="/images/background.png" alt="">
             </div>
             <div class="kotakan">
                 <div class="atasa">
@@ -563,7 +562,7 @@
             }
             wrapper.innerHTML += `
             <div class="background">
-                <img src="/images/Supercell-logo.svg" alt="">
+                <img src="/images/background.png" alt="">
             </div>
             <div class="bawahan">
                 <div class="kiri">
