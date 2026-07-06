@@ -233,20 +233,36 @@
                     height: 100%;
                     display: flex;
                     flex-direction: column;
-                    justify-content: end;
+                    justify-content: space-between;
                     gap: .1rem;
-                    padding-bottom: 0.5rem;
-                    .satuan {
+                    .bawah {
                         display: flex;
-                        align-items: center;
-                        gap: .3rem;
-                        small {
-                            font-weight: 600;
-                            font-size: .7rem;
+                        flex-direction: column;
+                        justify-content: end;
+                        gap: .1rem;
+                        .satuan {
+                            display: flex;
+                            align-items: center;
+                            gap: .2rem;
+                            small {
+                                font-weight: 600;
+                                font-size: .65rem;
+                            }
+                            img {
+                                height: .8rem;
+                                aspect-ratio: 1;
+                            }
                         }
-                        img {
-                            height: .9rem;
-                            aspect-ratio: 1;
+                    }
+                    .atas {
+                        display: flex;
+                        height: 55%;
+                        padding: .2rem;
+                        .foto {
+                            height: 100%;
+                            img {
+                                height: 100%;
+                            }
                         }
                     }
                 }
@@ -306,13 +322,23 @@
                         <img src="/images/icon/qrr.jpg" alt="">
                     </div>
                     <div class="sosmed">
-                        <div class="satuan fb">
-                            <img src="/images/icon/fb.svg" alt="">
-                            <small>zuma storee</small>
+                        <div class="bawah">
+                            <div class="satuan fb">
+                                <img src="/images/icon/fb.svg" alt="">
+                                <small>zuma storee</small>
+                            </div>
+                            <div class="satuan wa">
+                                <img src="/images/icon/wa.png" alt="">
+                                <small>+6285165418969</small>
+                            </div>
                         </div>
-                        <div class="satuan wa">
-                            <img src="/images/icon/wa.png" alt="">
-                            <small>085165418969</small>
+                        <div class="atas">
+                            <div class="foto">
+                                <img src="/images/bayar/binance.png" alt="">
+                            </div>
+                            <div class="foto">
+                                <img src="/images/bayar/qrisLogo.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -570,13 +596,23 @@
                         <img src="/images/icon/qrr.jpg" alt="">
                     </div>
                     <div class="sosmed">
-                        <div class="satuan fb">
-                            <img src="/images/icon/fb.svg" alt="">
-                            <small>zuma storee</small>
+                        <div class="bawah">
+                            <div class="satuan fb">
+                                <img src="/images/icon/fb.svg" alt="">
+                                <small>zuma storee</small>
+                            </div>
+                            <div class="satuan wa">
+                                <img src="/images/icon/wa.png" alt="">
+                                <small>+6285165418969</small>
+                            </div>
                         </div>
-                        <div class="satuan wa">
-                            <img src="/images/icon/wa.png" alt="">
-                            <small>085165418969</small>
+                        <div class="atas">
+                            <div class="foto">
+                                <img src="/images/bayar/binance.png" alt="">
+                            </div>
+                            <div class="foto">
+                                <img src="/images/bayar/qrisLogo.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
